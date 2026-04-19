@@ -70,7 +70,7 @@ const levels: LevelType[] = [
       ['#ff0055', '#00ffaa', '#ffaa00', '#0055ff'],
       ['#0055ff', '#ff0055', '#bb00ff', '#00ffaa'],
       ['#ffaa00', '#bb00ff', '#ff0055', '#bb00ff'],
-      ['#00ffaa', '#0055ff', '#ffaa00', '#bb00ff'],
+      ['#00ffaa', '#0055ff', '#ffaa00', '#00ffaa'],
       ['#bb00ff', '#ffaa00', '#0055ff', '#ff0055'],
       [],
       []
@@ -85,36 +85,6 @@ const levels: LevelType[] = [
       ['darkblue', 'darkgreen', 'gold', 'darkred'],
       ['hotpink', 'hotpink', 'teal', 'teal'],
       ['teal', 'teal', 'hotpink', 'hotpink'],
-      [],
-      []
-    ]
-  },
-  { // Level 9
-    id: 9,
-    tubes: [
-      ['#111', '#555', '#999', '#ccc'],
-      ['#ccc', '#111', '#555', '#999'],
-      ['#999', '#ccc', '#111', '#555'],
-      ['#555', '#999', '#ccc', '#111'],
-      ['#333', '#777', '#bbb', '#fff'],
-      ['#fff', '#333', '#777', '#bbb'],
-      ['#bbb', '#fff', '#333', '#777'],
-      ['#777', '#bbb', '#fff', '#333'],
-      [],
-      []
-    ]
-  },
-  { // Level 10
-    id: 10,
-    tubes: [
-      ['red', 'blue', 'green', 'yellow'],
-      ['orange', 'purple', 'cyan', 'magenta'],
-      ['yellow', 'green', 'blue', 'red'],
-      ['magenta', 'cyan', 'purple', 'orange'],
-      ['red', 'orange', 'yellow', 'green'],
-      ['blue', 'purple', 'cyan', 'magenta'],
-      ['green', 'yellow', 'orange', 'red'],
-      ['magenta', 'cyan', 'purple', 'blue'],
       [],
       []
     ]
