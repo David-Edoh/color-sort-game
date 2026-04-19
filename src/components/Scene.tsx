@@ -17,6 +17,7 @@ const ResponsiveCamera = ({ cols, spacingX }: { cols: number; spacingX: number }
       const fovRad = (camera.fov * Math.PI) / 180;
       const neededZ = requiredWidth / (2 * Math.tan(fovRad / 2) * aspect);
       camera.position.z = Math.max(12, neededZ);
+      camera.lookAt(0, 0, 0); // Center vertically
       camera.updateProjectionMatrix();
     }
   }, [size, camera, cols, spacingX]);
