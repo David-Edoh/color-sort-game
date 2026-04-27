@@ -1,6 +1,6 @@
 import { Canvas, useThree } from '@react-three/fiber';
 import { useEffect } from 'react';
-import { Environment, ContactShadows, PresentationControls } from '@react-three/drei';
+import { PresentationControls } from '@react-three/drei';
 import { useGameStore } from '../store/gameStore';
 import { Tube } from './Tube';
 
@@ -38,12 +38,16 @@ export const Scene = () => {
   const spacingZ = 2.5;
 
   return (
-    <Canvas camera={{ position: [0, 4, 12], fov: 45 }}>
+    <Canvas
+      camera={{ position: [0, 4, 12], fov: 45 }}
+      dpr={[1, 1.5]}
+      gl={{ antialias: true, powerPreference: 'high-performance' }}
+    >
       <ResponsiveCamera cols={cols} spacingX={spacingX} />
-      {/* Lighting */}
-      <ambientLight intensity={0.5} />
-      <directionalLight position={[10, 10, 5]} intensity={1.5} />
-      <Environment preset="city" />
+      {/* Keep startup lighting synchronous so tubes render immediately. */}
+      <ambientLight intensity={0.85} />
+      <hemisphereLight intensity={0.6} groundColor="#c7d2fe" />
+      <directionalLight position={[10, 12, 6]} intensity={1.25} />
 
       {/* Interactive Controls wrapper to let user look around slightly */}
       <PresentationControls
@@ -69,8 +73,11 @@ export const Scene = () => {
 
             return <Tube key={i} index={i} position={position} />;
           })}
-          
-          <ContactShadows position={[0, -0.2, 0]} opacity={0.4} scale={20} blur={2} far={4.5} />
+
+          <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -0.18, 0]}>
+            <planeGeometry args={[24, 24]} />
+            <meshStandardMaterial color="#dbe4f3" transparent opacity={0.2} />
+          </mesh>
         </group>
       </PresentationControls>
     </Canvas>
