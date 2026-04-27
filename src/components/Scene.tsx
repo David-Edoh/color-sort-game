@@ -1,6 +1,6 @@
 import { Canvas, useThree } from '@react-three/fiber';
 import { useEffect } from 'react';
-import { PresentationControls } from '@react-three/drei';
+import { PresentationControls, Text } from '@react-three/drei';
 import { useGameStore } from '../store/gameStore';
 import { Tube } from './Tube';
 
@@ -57,6 +57,28 @@ export const Scene = () => {
         azimuth={[-0.2, 0.2]}
       >
         <group position={[0, -2, 0]}>
+          <group position={[0, 4.6, -16.25]}>
+            <mesh>
+              <planeGeometry args={[8.5, 2.25]} />
+              <meshStandardMaterial color="#f5efe1" />
+            </mesh>
+            <mesh position={[0, 0, -0.02]}>
+              <planeGeometry args={[9, 2.75]} />
+              <meshStandardMaterial color="#6b7280" />
+            </mesh>
+            <Text
+              position={[0, 0, 0.02]}
+              fontSize={0.35}
+              color="#1f2937"
+              anchorX="center"
+              anchorY="middle"
+              maxWidth={7}
+              textAlign="center"
+            >
+              Sort the mixture to win 😊
+            </Text>
+          </group>
+
           {tubes.map((_, i) => {
             const row = Math.floor(i / cols);
             const col = i % cols;
